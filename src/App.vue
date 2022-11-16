@@ -1,15 +1,89 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <!-- <Binding-text></Binding-text>
+    <BindingHtml/>
+    <BindingToAttributes/>
+    <BindingInlineStyle/>
+    <ConditionalRendering/>
+    <ListRendering/>
+    <ConditionalListRendering/>
+    <MethodsRendering/>
+    <EventHandling/>
+    <FormHandling/>
+    <OnceAndPre/>
+    <ComputedProperties/>
+    <ComputedPropertiesAndConditionalRendering/>
+    <ComputedSetter/>
+    <WatchersVue/>
+    <ImmediateAndDeepWatchers/>
+    <ComponentProps name="Saikumar" leader="PSPK"/>
+    <ComponentProps name="Brad" leader="CBN"/>
+    <ComponentProps name="Greed" leader="BSY"/>
+    <ComponentProps :name="name" :leader="leader"/> -->
+    <PropTypesAndValidation titile="Article title" :likes="50" :isPublished="true" importantString="Value Passed"/>
+
+    <NonPropAttributes id="non-prop-attr" class="title" title="Non Props Attributes Component" :likes="100" :isCompleted="true" />
+
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import BindingText from './components/Binding-text.vue';
+// import BindingHtml from './components/bindingHtml.vue'
+// import BindingToAttributes from './components/BindingToAttributes.vue'
+// import BindingInlineStyle from './components/BindingInlineStyle.vue'
+// import ConditionalRendering from './components/Conditional-rendering.vue'
+// import ListRendering from './components/List-Rendering.vue'
+// import ConditionalListRendering from './components/Conditional-list-Rendering.vue'
+// import MethodsRendering from './components/Methods.vue'
+// import EventHandling from './components/EventHandling.vue'
+// import FormHandling from './components/FormHandling.vue'
+// import OnceAndPre from './components/once-and-pre.vue'
+// import ComputedProperties from './components/computed-properties.vue'
+// import ComputedPropertiesAndConditionalRendering from './components/ComputedProperties-and-ConditionalRendering.vue'
+// import ComputedSetter from './components/Computed-setter.vue'
+// import WatchersVue from './components/Watchers.vue'
+// import ImmediateAndDeepWatchers from './components/immediate-and-Deep-watchers.vue'
+// import ComponentProps from './components/component-props.vue'
+import PropTypesAndValidation from './components/propTypes-and-Validation.vue'
+import NonPropAttributes from './components/non-prop-attributes.vue'
 
 export default {
+  components: { 
+    // BindingText, 
+    // BindingHtml, 
+    // BindingToAttributes, 
+    // BindingInlineStyle, 
+    // ConditionalRendering,
+    // ListRendering,
+    // ConditionalListRendering,
+    // MethodsRendering,
+    // EventHandling,
+    // FormHandling,
+    // OnceAndPre,
+    // ComputedProperties,
+    // ComputedPropertiesAndConditionalRendering,
+    // ComputedSetter,
+    // WatchersVue,
+    // ImmediateAndDeepWatchers,
+    // ComponentProps,
+    PropTypesAndValidation,
+    NonPropAttributes
+  },
   name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return{
+      name:"Saikumar",
+      leader:"PSPK",
+      lastName: 'Raghavapuram',
+    }
+  },
+  methods: {
+
+  },
+  computed:{
+  },
+  watch:{
   }
 }
 </script>
@@ -22,5 +96,15 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.underline{
+  text-decoration: underline;
+}
+.promoted{
+  color: green;
+}
+.soldOut{
+  color: red;
 }
 </style>
