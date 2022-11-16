@@ -1,0 +1,158 @@
+Installation
+    a. vue CLI - npm install -g @vue/cli
+    b. version check - vue --version
+    c.updating vue CLI - npm update -g @vue/cli
+    d. Creating a project -- vue create hello-world
+
+1. Binding Text
+    In Vue we have 2 methods for Binding a Text
+    a. Mustache syntax {{}} (dynamic value update) recomended way
+    b. decorative Binding 'v-text' (this will write entire value of an html element)
+
+2. Binding Html
+    Using 'v-html' Attribute we can bind an html element which is coming from JS
+
+3. Binding to Attribute
+    we can bind any html attribute using "v-bind:attribute" decorator
+    we can have both static and dynamic classes for an html element.
+    we can write conditonal while Binding an attributes by using conditonal operators.
+    we can also bind attributes and their respective values using another 2 approaches
+        a. Array approach
+        b. Object approach
+
+4.Binding inline styling
+    we can bind style attribute in "Object" or "Array" syntax using "v-bind:style"
+
+    (note: for provinding shorter syntax we can omit "v-bind" in the syntax and can use only attribute followed by colon " :class='' ")
+
+5. Conditonal Rendering
+    In Vue we can conditonally render Html using 4 directives
+        a. v-if=""
+        b. v-else-if=""
+        c. v-else=""
+        d. v-show=""
+
+    note: in generall use case we may think v-if and v-show will work in similar way but they were not below points need to be consider.
+        a. v-if will render an element in dom only the JS expression which we have passed is true.
+        b. v-show will always keeps element in dom and sets inline display:none property to it, and the display property toggle based on our condition.
+
+6. List Rendering
+    In vue we can render list of elements using 'v-for' directive. for below senarios you can find same code in this project.
+        a. Array of strings
+        b. Array of objects
+        c. Array of Arrays
+        d. Block of HTML elements
+        e. object key value pairs.
+
+7. Key Attribute
+    Common and recommended way to provide a key attribute while using v-for directive
+    Key Attribute helps Vue to identify which item in a list changes,are added or removed and plays a crucial role in handling UI updates correctly and efficently.
+
+8. Conditional List Rendering
+    we cannot render a list with condition using v-for and v-if in a same tag.
+    instead use v-for for parent element and v-if for the element which need to be render conditionally.
+
+9. Methods
+    Methods are Commonly used when handling events
+    in vue we can create functions using methods property.
+    we cannot use arrow functions
+
+10. Event handling
+    in vue we can implement events using "v-on:eventyouwant="respectiveFunctionCall()" 
+    (eg: v-on:click="alert('you are hacked')")
+    short hand syntax '@eventYouWant="respectiveFunctionCall()"'
+    vue automaticaly pass event object as a arugument while event handling.
+
+11. Form handling
+    To Capture User events
+        a. Inputs
+        b.Text areas
+        c.single select dropdown control
+        d.multi select control
+        e.checkbox
+        f.checkbox group
+        g. radio
+        h.submit from data
+    for handling 2way Binding vue offers "v-model",  way Binding refers to passing data from logic to view and view to logic.
+
+12. Modifiers
+    A suffix can add to either v-on or v-model directives to add some functionality inline with in the template.
+    Helps yo write cleaner code.
+        a.trim (v-model.trim="") this will remove unwanted spaces.
+        b. number (v-mode.number="") this will ensure the value will be a number.
+        c. lazy (v-model.trim.lazy="") this will bind on the change event instead of input event, this will improve performance because it will not trigger on every key stroke.
+        d. prevent (@sumbit.prevent="") this is similar to event.preventDefault();
+        e. key ( @keyup.enter="submitForm" ) we will use it when we want to call a method after hitting any key.
+
+    Reference: https://vuejs.org/guide/essentials/event-handling.html#key-modifiers
+
+13. v-once directive
+    Renders the corresponding html only once, the element is treated as static content or skipped
+    It is not frequently used.
+
+14. v-pre directive
+    this directive skip compilation for the corresponding element.
+
+15. Computed Properties
+    Properties that can be bound  to the template like data Properties
+    they are used for composing data form existing sources
+    they are highly performent as they are cached in calculations which only update when their dependencies changes.
+    Whenever dependencies changes properties computed
+
+16. Computed properties v/s Methods
+    Method will always call when there is a change in UI, but Computed properties only call when there is a change in opration or values since it is cached.
+
+17. Computed Properties and Conditional Rendering (v-for).
+    I have array of objects and I want to filter out the item price which is greater than 100, to solve this problem I have 2 approaches
+        a. we can render list of items using v-for and using v-if condition we can print the value.
+        b. using computed property we can implement JS filter and there using v-for we can output the expected values (available in code).
+
+18. Computed Setter
+    we can use get and set using computed functions
+
+19. Watchers
+    Watchers allows you to watch any data or computed property and execute some code in responce to change in value
+    watchers are mostly Commonly used when we have to call an API in response to change in application.
+    When we want to apply transitions.
+
+20. Immediate and deep Watchers
+    we you are calling an api or a property and it should call by default, we can achieve achive this by passing a property "Immediate:true"
+    watcher will not watch in deep when we are dealing with objects so we need to pass "deep:true"
+
+21. Components
+    Vue follows component based archtecture
+    We can breakdown or webpage into small parts and implement code in the respective Components
+    A component contains 3 parts 
+        a. template
+        b. script
+        c. style
+    components are reusable and can be nested inside another components.
+    when we are createing new component we need to make sure it should be register with APP.vue file.
+
+22. Component Props
+    Components are reusable, we can create any component that returns html and include in any part of application where ever we want.
+    Props are custom attributes we can register on a component which allow the component content will be dynamic.
+    To retrive the value in the component 
+        1. Specify an option called props in the default export is an array of all data properties or custom attribute that component can accept from parent component.
+        2. Grab the value in the html where ever your calling the component
+
+23. Prop Types and Validations
+    vue allows us to specify props as an object instead as an array.
+    In the object syntax key is the prop name and value is the prop type.
+    Make sure to use v-bind directive if your are passing non string values, if not you will be landed into console warnings.
+     1.string
+     2.number
+     3.boolean
+     4.Array
+     5.object
+     6.function
+     7.Date
+
+24. Non Prop attributes
+    Non prop attribute is an attribute that is passed to a component ,but does not have corresponding property defined in props option. ex: Id, class, style.
+
+    if we add non prop attributes where we call the component, automaticaly these non prop attribute will apply to parent node.
+
+    if you want to apply non prop attributes for different elements instead of root node we need to use v-bind="$attrs" and to disable non prop attributes apply to root element include "inheritAttrs: flase" in exports block.
+
+25. Provide and inject
