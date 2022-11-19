@@ -138,6 +138,7 @@ Installation
 
 23. Prop Types and Validations
     vue allows us to specify props as an object instead as an array.
+    Props allows us to send data from parent to child component.
     In the object syntax key is the prop name and value is the prop type.
     Make sure to use v-bind directive if your are passing non string values, if not you will be landed into console warnings.
      1.string
@@ -155,4 +156,6 @@ Installation
 
     if you want to apply non prop attributes for different elements instead of root node we need to use v-bind="$attrs" and to disable non prop attributes apply to root element include "inheritAttrs: flase" in exports block.
 
-25. Provide and inject
+25. Provide and Inject
+    These are 2 powerfull Api's in Vue.
+    These two API's provide a way to pass data through component tree without having to pass down props manually at every level.
