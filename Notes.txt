@@ -159,3 +159,6 @@ Installation
 25. Provide and Inject
     These are 2 powerfull Api's in Vue.
     These two API's provide a way to pass data through component tree without having to pass down props manually at every level.
+    Steps to pass data from one component to another
+     1. Provide the value in the component 
+     2. inject the value 
