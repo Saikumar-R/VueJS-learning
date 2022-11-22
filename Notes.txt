@@ -162,3 +162,26 @@ Installation
     Steps to pass data from one component to another
      1. Provide the value in the component 
      2. inject the value 
+
+26. Component events
+    By Using props we can pass data from parent componet to child componet, in some cases we may need to pass data from Child to Parents components there we need to follow "Custom Component Events"
+    Steps:
+        1. Specify Emits options in the child component and emit and event using "$emit" property
+        2. Bind the custom event using event binding in the parent component and assign the following method.
+
+27. Validatinhg Emitted Events
+    Similar to props we can validate custom events that are emitted from child component.
+    refer example "\components\Component-events\Validating-Emitted-events"
+
+28. Components And V-model
+    in many cases we create a form componet and use many places in our application (ex:well styled input element) in such scenarios we need to add some logic to ensure v-model directive works as expected.
+    we need to add props and :value="modelValue" @input="$emit('update:modelValue',$event.target.value)
+    refer "\components\Components-and-V-model.vue"
+
+29. Slots
+    1. Props allow us to reuse components by passing different data
+    2. Props are great for reusability, we do have strict parent-child relationship.
+    3.The child values will always be in control of the HTML content and parent can only pass different data values but not HTML.
+    4.Solts on other hand are more powerfull, They allows us to reuse a componet, They allows the parent componet to control the content inside child component, by using slots we can embed any content in a child component including html elements.
+    refer "\components\Slots"
+    

@@ -20,10 +20,18 @@
     <ComponentProps name="Brad" leader="CBN"/>
     <ComponentProps name="Greed" leader="BSY"/>
     <ComponentProps :name="name" :leader="leader"/> -->
-    <PropTypesAndValidation titile="Article title" :likes="50" :isPublished="true" importantString="Value Passed"/>
+    <!-- <PropTypesAndValidation titile="Article title" :likes="50" :isPublished="true" importantString="Value Passed"/>
 
-    <NonPropAttributes id="non-prop-attr" class="title" title="Non Props Attributes Component" :likes="100" :isCompleted="true" />
+    <NonPropAttributes id="non-prop-attr" class="title" title="Non Props Attributes Component" :likes="100" :isCompleted="true" /> -->
 
+    <!-- <ComponentLevel1/> -->
+
+    <!-- <ParentComponent /> -->
+
+    <!-- <ValidatingEmittedEventFromChild /> -->
+
+    <!-- <InputComp v-model="userVal"/> -->
+    <SlotParent />
   </div>
 </template>
 
@@ -45,8 +53,13 @@
 // import WatchersVue from './components/Watchers.vue'
 // import ImmediateAndDeepWatchers from './components/immediate-and-Deep-watchers.vue'
 // import ComponentProps from './components/component-props.vue'
-import PropTypesAndValidation from './components/propTypes-and-Validation.vue'
-import NonPropAttributes from './components/non-prop-attributes.vue'
+// import PropTypesAndValidation from './components/propTypes-and-Validation.vue'
+// import NonPropAttributes from './components/non-prop-attributes.vue'
+// import ComponentLevel1 from './components/provide-and-inject/Component1.vue'
+// import ParentComponent from './components/Component-events/Parent-Component.vue'
+//import ValidatingEmittedEventFromChild from './components/Component-events/Validating-Emitted-events/Parent-Component.vue'
+// import InputComp from './components/Components-and-V-model.vue'
+import SlotParent from './components/Slots/parentComp.vue'
 
 export default {
   components: { 
@@ -67,8 +80,13 @@ export default {
     // WatchersVue,
     // ImmediateAndDeepWatchers,
     // ComponentProps,
-    PropTypesAndValidation,
-    NonPropAttributes
+    // PropTypesAndValidation,
+    // NonPropAttributes,
+    // ComponentLevel1,
+    // ParentComponent,
+    //ValidatingEmittedEventFromChild
+    // InputComp
+    SlotParent
   },
   name: 'App',
   data(){
@@ -76,6 +94,7 @@ export default {
       name:"Saikumar",
       leader:"PSPK",
       lastName: 'Raghavapuram',
+      userVal:""
     }
   },
   methods: {
@@ -84,6 +103,11 @@ export default {
   computed:{
   },
   watch:{
+  },
+  provide(){
+    return{
+      userName: this.name
+    }
   }
 }
 </script>
