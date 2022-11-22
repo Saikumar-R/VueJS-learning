@@ -184,4 +184,28 @@ Installation
     3.The child values will always be in control of the HTML content and parent can only pass different data values but not HTML.
     4.Solts on other hand are more powerfull, They allows us to reuse a componet, They allows the parent componet to control the content inside child component, by using slots we can embed any content in a child component including html elements.
     refer "\components\Slots"
-    
+
+30. Named Slots
+    Sometimes we find it useful multiple slots by doing so we have some predefined structure in child component but the content within the predefined structure will be controlled from parent componet by doing so we can utilise the component in multiple places.
+    refer "\components\Slots\Named-Slots.vue"
+
+31. Slots Props
+    in some cases we need Parent component to Control how child component will render the content.
+    Here in code we are controlling names list rendering style from parent component which was initated in child component.
+    to achieve this, we need to follow below Steps
+        1. Provide Slot tag in the child comp (Slot-Props.vue)
+        2. Pass the parameter Name as data to parent comp (parentComp.vue) to achieve this we need to use slot props syntax.
+
+32. Component Styling
+    1. Global Styling: 
+        a.By default a component styles are applied globally in the component tree (If we include the styles in Parent or child component that will be applied to both parent or child components as well if their selctors got match).
+        b. if we selectors got matched were we have seperated styles inside each component, and if we have different styles in parent component for same selectors ultimately the styles in elder parents will be applied since those will take priority in the tree.
+
+    2. Scope Styling:
+        a. Scoped Attribute ensures a component's CSS will apply only to its own HTML elements* (if we want to apply specific styles only for a component and those shouldn't be overwritten by parent comp styles, we need to add "scoped" keyword to the style tag of the component.
+        b. with scoped the parent component styles will not leak into child components. However, a child component root node will be effected by both the parents scoped CSS and the child's scoped CSS.This is by design so that the parent can style the child root element layout purposes.
+
+    3. Styling with Slots:
+        When using slots, the parent components styles are applied and not the child component styles even though the content is embedded inside the child component.
+
+33. Dynamic Components

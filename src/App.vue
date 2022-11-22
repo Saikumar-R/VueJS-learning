@@ -31,7 +31,7 @@
     <!-- <ValidatingEmittedEventFromChild /> -->
 
     <!-- <InputComp v-model="userVal"/> -->
-    <SlotParent />
+    <!-- <SlotParent /> -->
   </div>
 </template>
 
@@ -59,7 +59,7 @@
 // import ParentComponent from './components/Component-events/Parent-Component.vue'
 //import ValidatingEmittedEventFromChild from './components/Component-events/Validating-Emitted-events/Parent-Component.vue'
 // import InputComp from './components/Components-and-V-model.vue'
-import SlotParent from './components/Slots/parentComp.vue'
+// import SlotParent from './components/Slots/parentComp.vue'
 
 export default {
   components: { 
@@ -86,7 +86,7 @@ export default {
     // ParentComponent,
     //ValidatingEmittedEventFromChild
     // InputComp
-    SlotParent
+    // SlotParent
   },
   name: 'App',
   data(){
