@@ -32,6 +32,7 @@
 
     <!-- <InputComp v-model="userVal"/> -->
     <!-- <SlotParent /> -->
+    <DynamicCompParent />
   </div>
 </template>
 
@@ -60,6 +61,7 @@
 //import ValidatingEmittedEventFromChild from './components/Component-events/Validating-Emitted-events/Parent-Component.vue'
 // import InputComp from './components/Components-and-V-model.vue'
 // import SlotParent from './components/Slots/parentComp.vue'
+import DynamicCompParent from './components/Dynamic-Components/ParentComp.vue'
 
 export default {
   components: { 
@@ -84,9 +86,10 @@ export default {
     // NonPropAttributes,
     // ComponentLevel1,
     // ParentComponent,
-    //ValidatingEmittedEventFromChild
-    // InputComp
-    // SlotParent
+    //ValidatingEmittedEventFromChild,
+    // InputComp,
+    // SlotParent,
+    DynamicCompParent,
   },
   name: 'App',
   data(){

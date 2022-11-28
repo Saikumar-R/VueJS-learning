@@ -169,7 +169,8 @@ Installation
         1. Specify Emits options in the child component and emit and event using "$emit" property
         2. Bind the custom event using event binding in the parent component and assign the following method.
 
-27. Validatinhg Emitted Events
+
+27. Validating Emitted Events
     Similar to props we can validate custom events that are emitted from child component.
     refer example "\components\Component-events\Validating-Emitted-events"
 
@@ -209,3 +210,17 @@ Installation
         When using slots, the parent components styles are applied and not the child component styles even though the content is embedded inside the child component.
 
 33. Dynamic Components
+    In a web application we may deal with tabs, when a user click on tab we need to render respective data related to that component.
+    we need to use vue specified <component :is=""/> to achive dynamic components.
+    Note: This will work based on the Component names which we have mentioned in exports.
+    refer "\components\Dynamic-Components"
+
+34. Keeping Dynamic Components Alive
+    When ever vue render a component it will erase the other components data which was not in use. take below scenario for example.
+     -- when we have 3 tabs in the third tab were user wants to fill some form and the form should not be reset or erace if he switch between other tabs--
+    To Achive the above scenario VUE provide a special tag <keep-alive>
+    we need to wrap our dynamic components inside keep-alive to achieve this.
+
+35. Teleport Component
+    which is used to move elements from one place to another.
+
