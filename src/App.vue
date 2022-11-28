@@ -32,7 +32,14 @@
 
     <!-- <InputComp v-model="userVal"/> -->
     <!-- <SlotParent /> -->
-    <DynamicCompParent />
+    <!-- <DynamicCompParent /> -->
+    <!-- <teleport to="#portal-root">
+      <PortalRoot />
+    </teleport> -->
+    <!-- <HTTPGet /> -->
+    <!-- <HTTPPost /> -->
+    <ApiCallOnPageLoad />
+
   </div>
 </template>
 
@@ -61,8 +68,11 @@
 //import ValidatingEmittedEventFromChild from './components/Component-events/Validating-Emitted-events/Parent-Component.vue'
 // import InputComp from './components/Components-and-V-model.vue'
 // import SlotParent from './components/Slots/parentComp.vue'
-import DynamicCompParent from './components/Dynamic-Components/ParentComp.vue'
-
+//import DynamicCompParent from './components/Dynamic-Components/ParentComp.vue'
+// import PortalRoot from './components/Teleport-component/Portal-root.vue'
+// import HTTPGet from './components/HTTP/HTTP-Get'
+// import HTTPPost from './components/HTTP/HTTP-Post.vue'
+import ApiCallOnPageLoad from './components/HTTP/HTTP-onPageLoad'
 export default {
   components: { 
     // BindingText, 
@@ -89,7 +99,11 @@ export default {
     //ValidatingEmittedEventFromChild,
     // InputComp,
     // SlotParent,
-    DynamicCompParent,
+    // DynamicCompParent,
+    // PortalRoot
+    // HTTPGet
+    // HTTPPost,
+    ApiCallOnPageLoad
   },
   name: 'App',
   data(){

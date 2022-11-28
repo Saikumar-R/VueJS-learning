@@ -223,4 +223,62 @@ Installation
 
 35. Teleport Component
     which is used to move elements from one place to another.
+    It allows to define a component in one place and render it any position in the dom tree where ever we want even outside the scope of view application.
+    Teleporting provides an ability to break a Dom tree.
+    1. under public folder inside Index.html insert an element with id "portal-root" (we can give any id of our choise).
+    2. Create a component which you want to render in dom tree.
+    3. import the component in APP.vue 
+    4. Call the component inside <teleport to="#portal-root"> tag with target selector where ever you want to render your component.
 
+    Why Do we need Teleport Component?
+    1. when we want to deal with overlay modals.
+    2. We can nest component into other components. 
+
+36. HTTP and Vue.
+    IN real world web apps we may send or fetch some data from server, this can be achieve with the help of HTTP calls.
+    Vue is designed for creating user interfaces and no matter about HTTP, So for doing anything realted to HTTP we need to use an HTTP library and recieve or send information through data object in components.
+    We have popular http libraries but in this code I am using Axios.
+    for installing Axios in the project directory run "npm install axios"
+
+37. HTTP Get Request
+    1. For fetching data we need an API end point for that in code we are using "https://jsonplaceholder.typicode.com/"
+    2.Import Axios library
+    3.We need to create a data property which will stores information form server
+    4. we are going to use axios.get method to make a get request.
+
+38. HTTP Post Request
+    1. for posting data we need a API end point for that we rae using "https://jsonplaceholder.typicode.com/"
+    2. import axios library in the component
+    3. create a data property and include the values
+    4. using Axios.post method we can send data from our app to server.
+
+39. Components LifeCycle Hooks.
+    A Vue Component can go through 4 phases
+        1. Creation
+        2. Mounting
+        3. updating
+        4. Unmounting
+    Life cycle hooks are methods that allows to hook into these different phases in the life cycle of a component and execute some code.
+        1. Creation
+            a. beforeCreate()
+            b. created()
+        2. Mounting
+            a. beforeMount()
+            b. mounted()
+        3.updating
+            a.beforeUpdate()
+            b. Updated()
+        4. Unmounting
+            a.beforeUnmount()
+            b. unmounted()
+        5. Misc
+            a. activated()
+            b. deactivated()
+            c. errorCaptured()
+            d.renderTracked()
+            e. renderTriggred()
+
+40. HTTP Request on Page Load
+    we need to use above mentioned life cycle hooks based on the requirement and the phase of the component.
+
+41. Template Refs
