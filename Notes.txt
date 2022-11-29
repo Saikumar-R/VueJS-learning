@@ -282,3 +282,63 @@ Installation
     we need to use above mentioned life cycle hooks based on the requirement and the phase of the component.
 
 41. Template Refs
+    Refs makes possible to access dom nodes directly in vue.
+     1. include html attr ref="anyReferencename"
+     2. using mounted() life cycle hook since we are dealing with dom
+     3. syntax inside life cycle "this.$refs.anyReferencename.methodYouWantToCall()"
+
+42. Reuse functionality inside components with Mixins
+    Mixins allows us to reuse functionality between Components
+    1. create a folder and code a js file what you want to Reuse
+    2. import the created mixin file inside in which component you need to use
+    3. create "mixins:[]" array and inject the mixin name in the component where you wanted to use the mixin.
+    Note: if you have same handlers in both mixin and component, vue compiler will consider component level handler as priority but not mixins.
+
+43. Composition API
+    The Composition Api is a feature in vue3 which gives us another way to write our components, more specifically the script block in a component.
+    We have options Api to wite a components - data, methods, computed properties, watchers and life cycle hooks.
+    Till now we have learned about options Api which is one way to build a component.
+    There is an another way to build a component that is Composition API.
+
+    Why Composition API:
+        1. Vue projects hard to manage as they grew in size and complexity. with the options API components organised using data, methods, computed properties, watchers ..etc Logic isn't really grouped by feature which can make it hard to read through a large and complex component file.
+        2. Re-using logic across component became difficult
+        3. Composition Api allows us to encapsulate one  piece of functionality so that you can use it in different compoents throughout the appication.
+
+44. Replacing Data with Composition API.
+    1. we can replace data object with "ref" which needs to be imported from vue.
+    2. We can work with both options and composition API in a single component in vue3.
+    3. We need to start with setup(){} methods which is an entry point for composition API.
+    4. To create an equivalent of data property, we use a function in vue which is called "ref"
+    5. ref() function is differnt from "template ref" attribute,
+        Template ref is an attribute that gives us reference to html dom elements
+        ref() function returns reactive reference to a value.
+    6. ref() is a function which returns a reactive and mutable object that serves as rective refernce to the internal value it is holding.
+    7. If we log the variable created using composition API it will not return a simple string instead it returns an object that contains a value property that contains the string which we have stored.
+    8.when your using the variable in script you need to access the value using "value" property and that is not needed in template(html).
+
+45. Replacing Data with Reactive
+    1.Import Reactive from vue
+    2. in setup create a reactive({}) object.
+    3. declear all the data properties inside it.
+    4. we can bundle group of primitives together.
+    Why Reactive instead ref
+    1. When your dealing with primitives like string,number,boolean we should go with ref
+    2. when dealing with objects we can use reactive.
+
+46. Reactivity to Refs
+    1.initiate composition API using setup(), declare a variable with some value and try to change the value of variable and render in ui. in this scenario value of the variable can be change but the value in ui will not update at all.
+        To achieve the above case we need to use Reactivity Refs while declaring variable.
+    2. initiate composition API using setup(),declare reactive({}) object with some properties and bind them without using the variable name of reactive in template.
+        we can achieve this by calling the variable name inside return object but if you want to update the UI this will not work.
+        To work with Reactivity vue provides toRef(variable name of reactive) method for achieving the solution.
+
+47. Replacing Methods with Composition API
+    Instead of writing functions in methods sections we can write our functions inside setup(){} by using composition API.
+    With this we can write ES6 Fat arrow functions instead of writing regular functions in methods.
+
+48. v-model and composition API
+    we can use composition API to work with v-model
+    refer "\components\Composition-Api\v-model-and-compositionAPI.vue"
+
+49. 

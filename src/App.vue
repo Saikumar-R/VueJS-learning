@@ -38,7 +38,11 @@
     </teleport> -->
     <!-- <HTTPGet /> -->
     <!-- <HTTPPost /> -->
-    <ApiCallOnPageLoad />
+    <!-- <ApiCallOnPageLoad /> -->
+    <!-- <TemplateRef /> -->
+    <!-- <ButtonCounter />
+    <HoverCounter /> -->
+    <CompositionApiMainFile />
 
   </div>
 </template>
@@ -72,7 +76,11 @@
 // import PortalRoot from './components/Teleport-component/Portal-root.vue'
 // import HTTPGet from './components/HTTP/HTTP-Get'
 // import HTTPPost from './components/HTTP/HTTP-Post.vue'
-import ApiCallOnPageLoad from './components/HTTP/HTTP-onPageLoad'
+// import ApiCallOnPageLoad from './components/HTTP/HTTP-onPageLoad'
+// import TemplateRef from './components/TemplateRef.vue'
+// import ButtonCounter from './components/Reusablility-with-mixins/Button-counter.vue'
+// import HoverCounter from './components/Reusablility-with-mixins/hoverCounter.vue'
+import CompositionApiMainFile from './components/Composition-Api/main.vue'
 export default {
   components: { 
     // BindingText, 
@@ -100,10 +108,15 @@ export default {
     // InputComp,
     // SlotParent,
     // DynamicCompParent,
-    // PortalRoot
-    // HTTPGet
+    // PortalRoot,
+    // HTTPGet,
     // HTTPPost,
-    ApiCallOnPageLoad
+    // ApiCallOnPageLoad,
+    // TemplateRef,
+    // ButtonCounter,
+    // HoverCounter
+    CompositionApiMainFile
+    
   },
   name: 'App',
   data(){
