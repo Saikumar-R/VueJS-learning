@@ -337,8 +337,83 @@ Installation
     Instead of writing functions in methods sections we can write our functions inside setup(){} by using composition API.
     With this we can write ES6 Fat arrow functions instead of writing regular functions in methods.
 
-48. v-model and composition API
+48. v-model and composition API 
     we can use composition API to work with v-model
     refer "\components\Composition-Api\v-model-and-compositionAPI.vue"
 
-49. 
+49. Replacing Computed Properties with Composition Api 
+    instead of writing functions in Computed object, we can write by following below steps
+    1. Import computed function from vue
+    2. setup composition API using setup(){} function
+    3. inside setup({}), assign computed to a variable and call it in return statement
+    4. computed() accepts a function and we can write the function inside Computed
+    5. Function can be a traditional or an ES6 arrow function.
+
+50. Replacing Watchers with Composition Api 
+    instead of writing functions in Watch object, we can write by following below steps
+    1. Import Watch function from vue.
+    2. Setup composition Api using setup(){} function
+    3. inside setup(){} , implement watch(dataSourceToWatch, (oldvalueToWatch,newValueToWatch)=>{})
+    4. Watch function accept a data source to watch and a function with aruguments old and newvalues.
+    5. When you want to watch multiple dataSources, Watch function can accept array of data sources.
+    6. We can also performe Immediate and deep by passing an object inside watch function.
+    7. when you are using reactive to as data source, the old and new values will be same. to avoid this we need to follow below steps.
+        a. We need to pass data source (reactive variable) as a function
+        b. if you want to watch the nested object we need to set deep as true, if you do so again both old n=and new values will be same, to avoid this we need to make deep copy of nested object to do this we need to use utility library.
+         i. npm install lodash
+         ii. import _ from loadash
+         iii. pass _.cloneDeep(dataSource) in watch function
+
+51. Replacing Provide and inject with Composition Api 
+    1.Import provide from vue in the parent component.
+    2. create setup(){} function  and call provide inside it.
+    3. provide('lableOfTheValueToBind', 'value') accepts 2 aruguments
+        a. first argument is the label of the value which we wanted to bind.
+        b. Second argument is actual value.
+    4. Import Inject from vue in child Component
+    5. Inject ('LableofTheValue','DefaultValue') again accept 2 aruguments
+        a. first argument is label of the value which we are going to bind in child component
+        b. Second argument is Default Value, this will trigger only when dont provide any value in parent.
+    6.Assign inject to a variable call that variable inside return statement and bind the variable in html.
+
+52. Replacing Life cycle Hooks with composition Api.
+    1. beforeCreate() and created() is no longer supported since setup(){} will serve the same functionality.
+    2. onBeforeMount()
+    3. onMounted()
+    4. onBeforeUpdate()
+    5. onUpdated()
+    6. onBeforeUnmount()
+    7. onUnmounted()
+
+    Note:
+        a. With options Api we can write a hook like a method.
+        b. With composition API we need to import the hook from vue which we want to use and the hook will accept a call back function(arrow function) like below syntax
+            onBeforeMount(()=>{
+                console.log('hello')
+            })
+
+53. Template Refs and Composition Api
+    1. With options Api we have declared a reference to html element using ref="selector" and in script we used $refs.selector.method().
+    2. With composition API instead of following above, we can follow the below steps
+        i. declare a reference to the html element using ref="selector"
+        ii. in script set composition API using setup(){}
+        iii. import ref and assign it to a variable but the name should match with the html reference.
+        iv. then call the method and call the variable in return block
+
+54. Props and Composition Api.
+    1. in general when we want to pass data from parent to child we will use props.
+    2. with Options Api we can access the props with this keyword
+    3. we cannot access props in composition API with this keyword, instead we can follow below steps
+    4. Pass props as an argument to the setup(props){} function, and access using props instead this keyword.
+
+57. Custom Events and Composition Api
+
+58. Reusability with Composition Api
+    1. previously we used mixins for reusability.
+    2.follow below steps for reusability with composition API
+        1. create a folder with name composables or hooks
+        2. create a js file with naming convention "useFunctionName.js" and include your logic inside it with composition API syntax.
+        3. import the js file in the components and call inside return function under setup(){}
+    Why we need Composables instead of mixins
+        1.in mixins we cannot pass function arguments as per requirements.
+        2. Code become combersome.
